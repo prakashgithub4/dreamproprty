@@ -18,6 +18,13 @@
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
+                                    <?php if($this->session->flashdata('success')){ ?>
+										<div class="alert alert-success" role="alert">
+									     
+											<?= $this->session->flashdata('success') ?>
+										
+									     </div>
+                                         <?php } ?>
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
 												<tr>
@@ -26,22 +33,26 @@
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Title</th>
-                                                    <th>Slug</th>
+													<th>Slug</th>
+													<th>Image</th>
                                                     <th>Description</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+												<?php foreach($blogs as $key=>$value){?>
                                                 <tr class="odd gradeX">
-                                                    <td>Trident</td>
-                                                    <td>Internet Explorer 4.0</td>
-                                                    <td>Win 95+</td>
-                                                    <td class="center">4</td>
+                                                    <td><?= $key+1; ?></td>
+                                                    <td><?=$value['title']; ?></td>
+													<td><?=$value['slug']; ?></td>
+													<td><img src="<?php echo  base_url(); ?>assets/uploads/<?php echo $value['image']; ?>" height="70px" width="70px"></td>
+													
+                                                    <td class="center"><?=$value['description']; ?></td>
 													<td class="center">
 													<a href="#" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-													<a href="#"  class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+													<a href="<?php echo base_url(); ?>BlogController/deleteblog/<?= $value['id'] ?>" onclick='return confirm("Are You Sure want to delete this blog?")' class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                                 </tr>
-                                              
+												<?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

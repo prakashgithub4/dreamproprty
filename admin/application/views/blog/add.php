@@ -20,7 +20,9 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form">
+								<?php echo validation_errors(); ?>
+
+                                <form action="<?php echo base_url();?>BlogController/blogaddprocess" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label>Title<small style="color:red">*</small></label>
                                         <input name="title" id="title" class="form-control" placeholder="title"
@@ -114,7 +116,7 @@ $(document).ready(function() {
                 $("#nodescription").text("description is required");
 
             } else {
-
+                $("form")[0].submit();
                 $("#" + value.name).removeClass("error");
 
             }
