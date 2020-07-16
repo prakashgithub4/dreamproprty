@@ -24,33 +24,34 @@
 
                                 <form action="<?php echo base_url();?>BlogController/blogaddprocess" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
+										<input type="text" name="id" value="<?php echo (!empty($blog[0]['id']))?$blog[0]['id']:''; ?>"/>
                                         <label>Title<small style="color:red">*</small></label>
                                         <input name="title" id="title" class="form-control" placeholder="title"
-                                            onkeyup="slugs(this.value)">
+                                            onkeyup="slugs(this.value)" value="<?php echo (!empty($blog[0]['title']))?$blog[0]['title']:''; ?>">
                                         <span id="notitle" style="color:red"></span>
                                     </div>
                                     <div class="form-group">
                                         <label>Slug</label>
-                                        <input class="form-control" id="slug" name="slug" placeholder="slug" readonly>
+                                        <input class="form-control" id="slug" name="slug" value="<?php echo (!empty($blog[0]['slug']))?$blog[0]['slug']:''; ?>" placeholder="slug" readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label>File input</label>
                                         <input type="file" name="image" id="image">
-                                        <label id="perview" style="display:none"><img id="previewHolder" width="70px"
+                                        <label id="perview" style="display:<?php echo(!empty(@$blog[0]['image']))?'block':'none'; ?>"><img src="<?php echo base_url() ?>assets/uploads/<?php echo (!empty($blog[0]['image']))?$blog[0]['image']:''; ?>" id="previewHolder" width="70px"
                                                 height="70px" /></label>
                                     </div>
                                     <div class="form-group">
                                         <label>Description <small style="color:red">*</small></label>
                                         <textarea id="description" name="description" class="form-control"
-                                            rows="3"></textarea>
+                                            rows="3"><?php echo (!empty($blog[0]['description']))?$blog[0]['description']:''; ?></textarea>
                                         <span id="nodescription" style="color:red"></span>
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select class="form-control" name="status">
-                                            <option value="0">Inactive</option>
-                                            <option value="1">Active</option>
+                                            <option <?php echo (@$blog[0]['status'] == 0)? 'selected':''; ?> value="0">Inactive</option>
+                                            <option <?php echo (@$blog[0]['status'] == 1)? 'selected':''; ?> value="1">Active</option>
                                         </select>
                                     </div>
                                     <button type="button" id="button" class="btn btn-primary">Submit</button>

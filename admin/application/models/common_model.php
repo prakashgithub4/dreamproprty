@@ -13,12 +13,24 @@ class common_model extends CI_Model
 		}
 	 
 	}
-	public function common($table){
-		$this->db->select("*");
-		$this->db->from($table);
-		$this->db->order_by('id','Desc');
-		$query= $this->db->get();
-		return $query->result_array();
+	public function common($table,$id =""){
+		if(!empty($id))
+		{
+			$this->db->select("*");
+			$this->db->from($table);
+			$this->db->where('id',$id);
+			$query =$this->db->get();
+			return $query->result_array();
+		}
+		else
+		{
+			$this->db->select("*");
+			$this->db->from($table);
+			$this->db->order_by('id','Desc');
+			$query= $this->db->get();
+			return $query->result_array();
+		}
+	
 	}
 	public function deleteblog($id,$table)
 	{

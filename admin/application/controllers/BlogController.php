@@ -30,14 +30,32 @@ class BlogController extends CI_Controller {
 		{
 			$data['title']=$this->input->post('title');
 			$data['slug']=$this->input->post('slug');
-			$data['image'] = $this->do_upload('image','assets/uploads');
+			$id = $this->input->post('id');
+			$file_name = $this->do_upload('image','assets/uploads');
+			if(!empty($file_name)){
+				$data['image'] = $file_name;	
+				$file=$this->common_model->getfileName($id,'tbl_blog');
+				unlink('assets/uploads/'.$file[0]['image']);
+
+			}
+			
 			$data['description']=$this->input->post('description');
 			$data['status'] = $this->input->post('status');
 			$data['user_id'] = $this->session->userdata('id');
 			$data['created_on'] = date('y-m-d');
+			
+			if(!empty($id)){ 
+			
+				$this->common_model->save('tbl_blog',$data,$id);
+				$this->session->set_flashdata('success','Blog updated succesfully');
+				return redirect('../blog');
+
+
+			}else{ 
 			$this->common_model->save('tbl_blog',$data);
 			$this->session->set_flashdata('success','Blog inserted succesfully');
 			return redirect('../blog');
+		}
 		}
 
 
@@ -49,7 +67,14 @@ class BlogController extends CI_Controller {
 		
 		if(!empty($user_id))
 		{
-			$this->load->view('blog/add');
+			$id = $this->uri->segment(3);
+		    if(!empty($id)){
+				$data['blog'] = $this->common_model->common('tbl_blog',$id);
+				$this->load->view('blog/add',$data);
+			}else{
+				$this->load->view('blog/add');
+			}
+		
 		}
 		else
 		{

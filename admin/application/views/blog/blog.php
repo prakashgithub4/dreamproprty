@@ -49,7 +49,7 @@
 													
                                                     <td class="center"><?=$value['description']; ?></td>
 													<td class="center">
-													<a href="#" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+													<a href="<?php echo base_url(); ?>BlogController/add/<?= $value['id'] ?>" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 													<a href="<?php echo base_url(); ?>BlogController/deleteblog/<?= $value['id'] ?>" onclick='return confirm("Are You Sure want to delete this blog?")' class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                                 </tr>
 												<?php } ?>
