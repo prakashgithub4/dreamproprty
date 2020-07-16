@@ -13,7 +13,7 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>dashbord" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a href="<?php echo base_url(); ?>dashbord"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-pencil"></i> Manage Blog<span class="fa arrow"></span></a>
@@ -22,24 +22,25 @@
                                         <a href="flot.html">Flot Charts</a>
                                     </li> -->
                                     <li>
-                                        <a href="morris.html">Blog</a>
+                                        <a href="<?php echo base_url(); ?>blog">Blog</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
 							</li> 
-							
 							<li>
-                                <a href="#"><i class="fa fa-male"></i> Manage Agets<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa  fa-male"></i> Manage Agents<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <!-- <li>
                                         <a href="flot.html">Flot Charts</a>
                                     </li> -->
                                     <li>
-                                        <a href="#">Agent</a>
-                                    </li>
+                                        <a href="morris.html">Agent</a>
+									</li>
+									
+									
                                 </ul>
                                 <!-- /.nav-second-level -->
-							</li>
+                            </li>
 							<li>
                                 <a href="#"><i class="fa  fa-bed"></i> Manage Property<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -76,11 +77,11 @@
                                         <a href="flot.html">Flot Charts</a>
                                     </li> -->
                                     <li>
-                                        <a href="#">Contact</a>
+                                        <a href="morris.html">Contact</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
-							</li>	
+                            </li>
 							<li>
                                 <a href="#"><i class="fa fa-truck"></i> Manage Service<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -88,20 +89,20 @@
                                         <a href="flot.html">Flot Charts</a>
                                     </li> -->
                                     <li>
-                                        <a href="#">Service</a>
+                                        <a href="morris.html">Service</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
-							</li>
+                            </li>
 							
 							<li>
-                                <a href="#"><i class="fa fa-google-plus"></i> Social Managements<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-Google"></i> Manage Social<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <!-- <li>
                                         <a href="flot.html">Flot Charts</a>
                                     </li> -->
                                     <li>
-                                        <a href="#">Social</a>
+                                        <a href="morris.html">Social</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

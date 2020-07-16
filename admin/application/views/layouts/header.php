@@ -12,7 +12,14 @@
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
-        <link href="<?php echo base_url(); ?>assets/css/metisMenu.min.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>assets/css/metisMenu.min.css" rel="stylesheet">
+		 <!-- DataTables CSS -->
+		<link href="<?php echo base_url(); ?>assets/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+		<!-- DataTables Responsive CSS -->
+		<link href="<?php echo base_url(); ?>assets/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+
 
         <!-- Timeline CSS -->
         <link href="<?php echo base_url(); ?>assets/css/timeline.css" rel="stylesheet">

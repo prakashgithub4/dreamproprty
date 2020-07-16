@@ -53,6 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['dashbord'] = 'DashbordController/index';
 $route['logout']='Welcome/logout';
 $route['changepassword']='Welcome/changepassword';
+$route['blog'] = 'BlogController/index';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
