@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Blogs</h1>
+                <h1 class="page-header">Agents</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Blogs
+                        Agents
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -29,15 +29,14 @@
                                 <thead>
                                     <tr>
                                         <td colspan="6" align="right"><a
-                                                href="<?php echo base_url();?>BlogController/add"
+                                                href="<?php echo base_url();?>AgentController/add"
                                                 class="btn btn-info">Add</button></td>
                                     </tr>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Title</th>
+                                        <th>Name</th>
                                         <th>Slug</th>
                                         <th>Image</th>
-                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -45,17 +44,17 @@
                                     <?php foreach($blogs as $key=>$value){?>
                                     <tr class="odd gradeX">
                                         <td><?= $key+1; ?></td>
-                                        <td><?=$value['title']; ?></td>
+                                        <td><?=$value['name']; ?></td>
                                         <td><?=$value['slug']; ?></td>
-                                        <td><img src="<?php echo  base_url(); ?>assets/uploads/blog/<?php echo $value['image']; ?>"
+                                        <td><img src="<?php echo  base_url(); ?>assets/uploads/agent/<?php echo $value['image']; ?>"
                                                 height="70px" width="70px"></td>
 
-                                        <td class="center"><?=$value['description']; ?></td>
+                                       
                                         <td class="center">
-                                            <a href="<?php echo base_url(); ?>BlogController/add/<?= $value['id'] ?>"
+                                            <a href="<?php echo base_url(); ?>AgentController/add/<?= $value['id'] ?>"
                                                 class="btn btn-info"><i class="fa fa-pencil-square-o"
                                                     aria-hidden="true"></i></a>
-                                            <a href="<?php echo base_url(); ?>BlogController/deleteblog/<?= $value['id'] ?>"
+                                            <a href="<?php echo base_url(); ?>AgentController/deleteblog/<?= $value['id'] ?>"
                                                 onclick='return confirm("Are You Sure want to delete this blog?")'
                                                 class="btn btn-danger"><i class="fa fa-trash"
                                                     aria-hidden="true"></i></a></td>

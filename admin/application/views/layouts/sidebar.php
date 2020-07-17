@@ -34,7 +34,7 @@
                                         <a href="flot.html">Flot Charts</a>
                                     </li> -->
                                     <li>
-                                        <a href="morris.html">Agent</a>
+                                        <a href="<?php echo base_url(); ?>AgentController/index">Agent</a>
 									</li>
 									
 									

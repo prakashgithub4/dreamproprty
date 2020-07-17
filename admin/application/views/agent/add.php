@@ -22,12 +22,12 @@
                             <div class="col-lg-6">
 								<?php echo validation_errors(); ?>
 
-                                <form action="<?php echo base_url();?>BlogController/blogaddprocess" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url();?>AgentController/blogaddprocess" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
 										<input type="hidden" name="id" value="<?php echo (!empty($blog[0]['id']))?$blog[0]['id']:''; ?>"/>
-                                        <label>Title<small style="color:red">*</small></label>
-                                        <input name="title" id="title" class="form-control" placeholder="title"
-                                            onkeyup="slugs(this.value)" value="<?php echo (!empty($blog[0]['title']))?$blog[0]['title']:''; ?>">
+                                        <label>name<small style="color:red">*</small></label>
+                                        <input name="name" id="name" class="form-control" placeholder="name"
+                                            onkeyup="slugs(this.value)" value="<?php echo (!empty($blog[0]['name']))?$blog[0]['name']:''; ?>">
                                         <span id="notitle" style="color:red"></span>
                                     </div>
                                     <div class="form-group">
@@ -38,22 +38,10 @@
                                     <div class="form-group">
                                         <label>Image</label>
                                         <input type="file" name="image" id="image">
-                                        <label id="perview" style="display:<?php echo(!empty(@$blog[0]['image']))?'block':'none'; ?>"><img src="<?php echo base_url() ?>assets/uploads/blog/<?php echo (!empty($blog[0]['image']))?$blog[0]['image']:''; ?>" id="previewHolder" width="70px"
+                                        <label id="perview" style="display:<?php echo(!empty(@$blog[0]['image']))?'block':'none'; ?>"><img src="<?php echo base_url() ?>assets/uploads/agent/<?php echo (!empty($blog[0]['image']))?$blog[0]['image']:''; ?>" id="previewHolder" width="70px"
                                                 height="70px" /></label>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Description <small style="color:red">*</small></label>
-                                        <textarea id="description" name="description" class="form-control"
-                                            rows="3"><?php echo (!empty($blog[0]['description']))?$blog[0]['description']:''; ?></textarea>
-                                        <span id="nodescription" style="color:red"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="form-control" name="status">
-                                            <option <?php echo (@$blog[0]['status'] == 0)? 'selected':''; ?> value="0">Inactive</option>
-                                            <option <?php echo (@$blog[0]['status'] == 1)? 'selected':''; ?> value="1">Active</option>
-                                        </select>
-                                    </div>
+                                   
                                     <button type="button" id="button" class="btn btn-primary">Submit</button>
 
                                 </form>
@@ -108,14 +96,10 @@ $(document).ready(function() {
     $("button").click(function() {
         var fields = $("form").serializeArray();
         $.each(fields, function(index, value) {
-            if ((value.name == "title") && (value.value == "")) {
+            if ((value.name == "name") && (value.value == "")) {
                 $("#" + value.name).addClass("error");
-                $("#notitle").text("title is required");
-            } else if ((value.name == "description") && (value.value == "")) {
-
-                $("#" + value.name).addClass("error");
-                $("#nodescription").text("description is required");
-
+                $("#notitle").text("name is required");
+				return false;
             } else {
                 $("form")[0].submit();
                 $("#" + value.name).removeClass("error");
